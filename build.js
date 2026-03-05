@@ -24,11 +24,18 @@ if (!NOCODB_TOKEN) {
 
 // ─── Secure Image Downloader ────────────────────────────────
 async function downloadNocoDbAttachment(attachment, localPath) {
-  if (!attachment || !attachment.length || !attachment[0].url) return '';
+  if (!attachment || !attachment.length) return '';
 
-  const url = attachment[0].url;
-  // If it's already a relative path, it's not a nocodb attachment
-  if (!url.startsWith('http')) return url;
+  const imgObj = attachment[0];
+  if (!imgObj.url && !imgObj.path && !imgObj.signedPath) return '';
+
+  const url = imgObj.signedPath || imgObj.url || imgObj.path;
+
+  // If the string literally starts with a slash, we assume it's a relative path to the dist folder (e.g. /assets/og-image.png)
+  if (url.startsWith('/')) {
+    const maybeLocalFile = path.join(process.cwd(), 'dist', url);
+    if (fs.existsSync(maybeLocalFile)) return url;
+  }
 
   // Check if we already downloaded this exact image in a previous build!
   // If we did, skip the download to save bandwidth and build time.
@@ -38,13 +45,24 @@ async function downloadNocoDbAttachment(attachment, localPath) {
     return relativePublicPath;
   }
 
-  const fullUrl = url.startsWith('/') ? `${NOCODB_URL}${url}` : url;
+  // Construct full URL depending on NocoDB API response variations
+  let fullUrl = url;
+  if (url.startsWith('dltemp/') || url.startsWith('download/')) {
+    fullUrl = `${NOCODB_URL}/${url}`;
+  } else if (url.startsWith('/')) {
+    fullUrl = `${NOCODB_URL}${url}`;
+  }
+
+  console.log(`    Downloading: ${fullUrl}`);
 
   try {
     const res = await fetch(fullUrl, {
       headers: { 'xc-token': NOCODB_TOKEN }
     });
-    if (!res.ok) throw new Error(`Failed to download image: ${res.statusText}`);
+    if (!res.ok) {
+      console.error(`    NocoDB refused image download [${res.status}]: ${fullUrl}`);
+      return ''; // suppress throw
+    }
 
     const buffer = await res.arrayBuffer();
     await fs.ensureDir(path.dirname(localPath));
@@ -277,9 +295,15 @@ async function buildOurWorkPage(work, template) {
 function buildOurWorkListingPage(works, template) {
   const cards = works.map(work => {
     // Generate a quick URL to the attachment for the thumbnail if available
-    const thumbUrl = work.HeroImage && work.HeroImage.length > 0 ?
-      (work.HeroImage[0].url.startsWith('http') ? work.HeroImage[0].url : `${NOCODB_URL}${work.HeroImage[0].url}`) :
-      '/assets/og-image.png';
+    let thumbUrl = '/assets/og-image.png';
+    if (work.HeroImage && work.HeroImage.length > 0) {
+      const firstImg = work.HeroImage[0];
+      // Axios uploads nested the properties slightly differently than UI uploads
+      const rawUrl = firstImg.signedPath || firstImg.url || firstImg.path || '';
+      if (rawUrl) {
+        thumbUrl = rawUrl.startsWith('http') ? rawUrl : `${NOCODB_URL}${rawUrl}`;
+      }
+    }
 
     return `
         <article class="blog-card">
