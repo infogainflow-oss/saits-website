@@ -85,11 +85,15 @@ function parseFrontmatter(content) {
 }
 
 // ─── Build a single blog HTML page ──────────────────────────
-function buildBlogPage(blog, template) {
+async function buildBlogPage(blog, template) {
   const bodyHtml = marked(blog.Body || '');
   const canonicalUrl = `https://saits.ai/blogs/${blog.Slug}`;
+
+  // Download the cover image securely
+  const coverLocalPath = await downloadNocoDbAttachment(blog.CoverImage, `dist/assets/blogs/${blog.Slug}-cover.jpeg`);
+
   // Use cover image if available, else default OG image
-  const ogImage = blog.CoverImage ? blog.CoverImage : 'https://saits.ai/assets/og-image.png';
+  const ogImage = coverLocalPath ? `https://saits.ai${coverLocalPath}` : 'https://saits.ai/assets/og-image.png';
 
   const dateStr = blog.Date ? new Date(blog.Date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : '';
   const isoDate = blog.Date ? new Date(blog.Date).toISOString() : '';
@@ -132,6 +136,9 @@ function buildBlogPage(blog, template) {
   html = html.replace(/{{body}}/g, bodyHtml);
   html = html.replace(/{{slug}}/g, blog.Slug || '');
 
+  // Inject Local Cover Image URL into HTML if they want to display it
+  html = html.replace(/{{cover_image}}/g, coverLocalPath || '');
+
   // New SEO variables
   html = html.replace(/{{canonical_url}}/g, canonicalUrl);
   html = html.replace(/{{og_image}}/g, ogImage);
@@ -143,9 +150,17 @@ function buildBlogPage(blog, template) {
 
 // ─── Build blog listing page ────────────────────────────────
 function buildBlogListingPage(blogs, template) {
-  const cards = blogs.map(blog => `
+  const cards = blogs.map(blog => {
+    // Generate a quick URL to the attachment for the thumbnail if available
+    const thumbUrl = blog.CoverImage && blog.CoverImage.length > 0 ?
+      (blog.CoverImage[0].url.startsWith('http') ? blog.CoverImage[0].url : `${NOCODB_URL}${blog.CoverImage[0].url}`) :
+      '/assets/og-image.png';
+
+    return `
         <article class="blog-card">
             <a href="/blogs/${blog.Slug}" class="blog-card-link">
+                <!-- If you ever want a thumbnail image, here it is: -->
+                <!-- <img src="${thumbUrl}" alt="${blog.Title || ''}" class="work-card-img" crossorigin="anonymous"> -->
                 <div class="blog-card-content">
                     <span class="blog-card-tag">${blog.Tag || ''}</span>
                     <h3 class="blog-card-title">${blog.Title || ''}</h3>
@@ -157,7 +172,8 @@ function buildBlogListingPage(blogs, template) {
                 </div>
             </a>
         </article>
-    `).join('\n');
+    `;
+  }).join('\n');
 
   return template.replace('{{blog-cards}}', cards);
 }
@@ -304,10 +320,10 @@ async function build() {
 
   // Build individual blog pages
   for (const blog of blogs) {
-    const html = buildBlogPage(blog, blogPostTemplate);
+    const html = await buildBlogPage(blog, blogPostTemplate); // Added await because it downloads images now
     const outputPath = `dist/blogs/${blog.Slug}.html`;
     await fs.writeFile(outputPath, html);
-    console.log(`  ✓ Built blogs/${blog.Slug}.html`);
+    console.log(`  ✓ Built blogs/${blog.Slug}.html (and downloaded cover)`);
   }
 
   // Build blog listing page
