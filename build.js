@@ -165,6 +165,14 @@ async function buildBlogPage(blog, template) {
   // Inject Local Cover Image URL into HTML if they want to display it
   html = html.replace(/{{cover_image}}/g, coverLocalPath || '');
 
+  // Generate full cover image HTML block (only if image exists)
+  const coverImageHtml = coverLocalPath
+    ? `<div style="max-width: 900px; margin: -3rem auto 0; position: relative; z-index: 2; padding: 0 1rem;">
+         <img src="${coverLocalPath}" alt="${blog.Title || ''}" style="width: 100%; height: auto; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.12); display: block;">
+       </div>`
+    : '';
+  html = html.replace(/{{cover_image_html}}/g, coverImageHtml);
+
   // New SEO variables
   html = html.replace(/{{canonical_url}}/g, canonicalUrl);
   html = html.replace(/{{og_image}}/g, ogImage);
@@ -185,8 +193,7 @@ function buildBlogListingPage(blogs, template) {
     return `
         <article class="blog-card">
             <a href="/blogs/${blog.Slug}" class="blog-card-link">
-                <!-- If you ever want a thumbnail image, here it is: -->
-                <!-- <img src="${thumbUrl}" alt="${blog.Title || ''}" class="work-card-img" crossorigin="anonymous"> -->
+                <img src="${thumbUrl}" alt="${blog.Title || ''}" class="blog-card-img">
                 <div class="blog-card-content">
                     <span class="blog-card-tag">${blog.Tag || ''}</span>
                     <h3 class="blog-card-title">${blog.Title || ''}</h3>
