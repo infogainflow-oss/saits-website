@@ -91,7 +91,24 @@
     <priority>0.7</priority>
   </url>
 
-  <!-- Case Studies -->
+  <!-- Our Work (NocoDB Generated Case Studies) -->
+  <url>
+    <loc>https://saits.ai/our-work</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://saits.ai/our-work/ai-invoicing</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://saits.ai/our-work/support-bot</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Old Static Case Studies (Deprecated) -->
   <url>
     <loc>https://saits.ai/case-studies/real-estate</loc>
     <changefreq>monthly</changefreq>

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}} | SAITS Case Study</title>
+    <meta name="description" content="{{description}}">
+    <meta name="author" content="SAITS">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="{{canonical_url}}">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="{{canonical_url}}">
+    <meta property="og:title" content="{{title}} | SAITS Case Study">
+    <meta property="og:description" content="{{description}}">
+    <meta property="og:site_name" content="SAITS">
+    <meta property="og:image" content="{{og_image}}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{title}} | SAITS Case Study">
+    <meta name="twitter:description" content="{{description}}">
+    <meta name="twitter:image" content="{{og_image}}">
+
+    {{article_schema}}
+    {{breadcrumb_schema}}
+
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Serif+Display&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/cookie-banner.css">
+    <style>
+        .case-study-hero {
+            padding: 10rem 0 6rem;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            color: white;
+        }
+
+        .case-study-hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(23, 37, 84, 0.95) 0%, rgba(30, 58, 138, 0.85) 100%);
+            z-index: 1;
+        }
+
+        .case-study-hero .container {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .case-study-hero .article-tag {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .case-study-hero h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 400;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .case-study-hero p {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.85);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .article-content {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .article-content .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .article-content h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 2rem;
+            color: #172554;
+            margin: 3.5rem 0 1.5rem;
+            position: relative;
+            padding-bottom: 0.75rem;
+        }
+
+        .article-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: #3b82f6;
+        }
+
+        /* Remove top margin from first H2 */
+        .article-content>h2:first-child {
+            margin-top: 0;
+        }
+
+        .article-content h3 {
+            font-size: 1.35rem;
+            color: #172554;
+            margin: 2rem 0 1rem;
+            font-weight: 600;
+        }
+
+        .article-content p {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: #4b5563;
+            margin-bottom: 1.5rem;
+        }
+
+        .article-content ul,
+        .article-content ol {
+            margin: 1.5rem 0 2rem;
+            padding-left: 1.5rem;
+        }
+
+        .article-content li {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: #4b5563;
+            margin-bottom: 0.75rem;
+        }
+
+        .article-content blockquote {
+            background: #f8f9fa;
+            border-left: 4px solid #3b82f6;
+            padding: 2rem;
+            margin: 2.5rem 0;
+            font-style: italic;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .article-content strong {
+            color: #1e293b;
+            font-weight: 600;
+        }
+
+        .case-study-image {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin: 2.5rem 0;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            border: 1px solid #f3f4f6;
+        }
+
+        .article-cta {
+            background: #172554;
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .article-cta h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 1.25rem;
+        }
+
+        .article-cta p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="/" class="logo-link"><img src="../assets/saits-logo.svg" alt="SAITS" class="logo-img"></a>
+                <nav class="nav">
+                    <div class="nav-dropdown">
+                        <a href="/industries" class="nav-link">Industries <svg width="10" height="6" viewBox="0 0 10 6">
+                                <path d="M1 1l4 4 4-4" stroke="currentColor" fill="none" stroke-width="1.5" />
+                            </svg></a>
+                        <div class="dropdown-menu">
+                            <a href="/industries/real-estate">Real Estate</a>
+                            <a href="/industries/financial-services">Financial Services</a>
+                            <a href="/industries/construction">Construction</a>
+                            <a href="/industries/manufacturing">Manufacturing</a>
+                            <a href="/industries/consumer-retail">Retail</a>
+                            <a href="/industries/public-sector">Public Sector</a>
+                        </div>
+                    </div>
+                    <a href="/services" class="nav-link">Services</a>
+                    <a href="/our-work" class="nav-link">Our Work</a>
+                    <a href="/blogs" class="nav-link">Blog</a>
+                    <a href="/about" class="nav-link">About</a>
+                    <a href="/contact" class="nav-link">Contact</a>
+                </nav>
+                <button class="mobile-menu-btn" id="mobileMenuBtn"
+                    aria-label="Toggle menu"><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <nav class="mobile-nav">
+            <a href="/industries" class="mobile-nav-link">Industries</a>
+            <a href="/services" class="mobile-nav-link">Services</a>
+            <a href="/our-work" class="mobile-nav-link">Our Work</a>
+            <a href="/blogs" class="mobile-nav-link">Blog</a>
+            <a href="/about" class="mobile-nav-link">About</a>
+            <a href="/contact" class="mobile-nav-link">Contact</a>
+        </nav>
+    </div>
+
+    <main>
+        <section class="case-study-hero" style="background-image: url('{{hero_image}}');">
+            <div class="case-study-hero-overlay"></div>
+            <div class="container">
+                <span class="article-tag">{{industry}}</span>
+                <h1>{{title}}</h1>
+                <p>{{description}}</p>
+            </div>
+        </section>
+
+        <section class="article-content">
+            <div class="container">
+                <h2>The Challenge</h2>
+                {{challenge_body}}
+
+                <h2>The Solution</h2>
+                {{solution_image_html}}
+                {{solution_body}}
+
+                <h2>The Results</h2>
+                {{results_image_html}}
+                {{results_body}}
+            </div>
+        </section>
+
+        <section class="article-cta">
+            <div class="container">
+                <h2>Transform Your Own Operations</h2>
+                <p>Discover how SAITS can design and implement custom AI pipelines for your enterprise.</p>
+                <a href="/contact" class="btn btn-white">Get in Touch</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="logo-link"><img src="../assets/saits-logo.svg" alt="SAITS" class="logo-img"></a>
+                    <p>Swiss-based AI automation, serving clients globally.</p>
+                </div>
+                <div class="footer-section">
+                    <h5>Company</h5>
+                    <ul class="footer-links">
+                        <li><a href="/our-work">Our Work</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 SAITS. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="../js/main.js"></script>
+
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-banner" class="cookie-banner">
+        <div class="cookie-banner-content">
+            <div class="cookie-banner-text">
+                <p>🍪 We use essential cookies to ensure our website functions properly. We do not use tracking or
+                    advertising
+                    cookies. <a href="/privacy">Learn more</a></p>
+            </div>
+            <div class="cookie-banner-actions">
+                <button id="cookie-accept" class="cookie-btn cookie-btn-accept">Accept</button>
+                <button id="cookie-decline" class="cookie-btn cookie-btn-decline">Decline</button>
+            </div>
+        </div>
+    </div>
+    <script src="../js/cookie-banner.js"></script>
+</body>
+
+</html>
