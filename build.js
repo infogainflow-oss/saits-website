@@ -235,8 +235,9 @@ async function buildOurWorkPage(work, template) {
 
   const canonicalUrl = `https://saits.ai/our-work/${work.Slug}`;
 
-  // Download the three images securely
+  // Download the three images securely (+ ListingImage)
   const heroLocalPath = await downloadNocoDbAttachment(work.HeroImage, `dist/assets/our-work/${work.Slug}-hero.jpeg`);
+  const listingLocalPath = await downloadNocoDbAttachment(work.ListingImage, `dist/assets/our-work/${work.Slug}-listing.jpeg`);
   const solutionLocalPath = await downloadNocoDbAttachment(work.SolutionImage, `dist/assets/our-work/${work.Slug}-solution.jpeg`);
   const resultsLocalPath = await downloadNocoDbAttachment(work.ResultsImage, `dist/assets/our-work/${work.Slug}-results.jpeg`);
 
@@ -301,19 +302,21 @@ async function buildOurWorkPage(work, template) {
 // ─── Build Our Work listing page ────────────────────────────
 function buildOurWorkListingPage(works, template) {
   const cards = works.map(work => {
-    // Use the locally downloaded hero image (same path used by buildOurWorkPage)
-    const thumbUrl = work.HeroImage && work.HeroImage.length > 0
-      ? `/assets/our-work/${work.Slug}-hero.jpeg`
-      : '/assets/og-image.png';
+    // Prefer ListingImage, fallback to locally downloaded hero image
+    let thumbUrl = '/assets/og-image.png';
+    if (work.ListingImage && work.ListingImage.length > 0) {
+      thumbUrl = `/assets/our-work/${work.Slug}-listing.jpeg`;
+    } else if (work.HeroImage && work.HeroImage.length > 0) {
+      thumbUrl = `/assets/our-work/${work.Slug}-hero.jpeg`;
+    }
 
     return `
-        <article class="blog-card">
-            <a href="/our-work/${work.Slug}" class="blog-card-link">
-                <img src="${thumbUrl}" alt="${work.Title || ''}" class="work-card-img" crossorigin="anonymous">
-                <div class="blog-card-content">
-                    <span class="blog-card-tag">${work.Industry || ''}</span>
-                    <h3 class="blog-card-title">${work.Title || ''}</h3>
-                    <p class="blog-card-desc">${work.Summary || ''}</p>
+        <article class="work-card-full" style="background-image: url('${thumbUrl}');">
+            <a href="/our-work/${work.Slug}" class="work-card-link">
+                <div class="work-card-overlay"></div>
+                <div class="work-card-content">
+                    <span class="work-card-tag">${work.Industry || ''}</span>
+                    <h3 class="work-card-title">${work.Title || ''}</h3>
                     <div class="work-card-footer">
                         Read Case Study &rarr;
                     </div>
