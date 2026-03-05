@@ -325,6 +325,157 @@ function buildOurWorkListingPage(works, template) {
   return template.replace('{{work-cards}}', cards);
 }
 
+// ─── Generate dynamic sitemap.xml ───────────────────────────
+function generateSitemap(blogs, works) {
+  const today = new Date().toISOString().split('T')[0];
+
+  // Static pages with their priorities and change frequencies
+  const staticPages = [
+    { loc: '/', changefreq: 'weekly', priority: '1.0' },
+    { loc: '/about', changefreq: 'monthly', priority: '0.8' },
+    { loc: '/services', changefreq: 'monthly', priority: '0.9' },
+    { loc: '/contact', changefreq: 'monthly', priority: '0.8' },
+    { loc: '/industries', changefreq: 'monthly', priority: '0.8' },
+    { loc: '/solutions', changefreq: 'monthly', priority: '0.7' },
+    { loc: '/work', changefreq: 'monthly', priority: '0.7' },
+  ];
+
+  // Industry pages
+  const industryPages = [
+    'real-estate', 'financial-services', 'construction', 'manufacturing',
+    'consumer-retail', 'public-sector', 'healthcare', 'logistics',
+    'automotive', 'education'
+  ];
+
+  // Article pages
+  const articlePages = [
+    'ai-implementation-guide', 'ai-financial-services-compliance',
+    'document-processing-transformation'
+  ];
+
+  // Hreflang pairs for legal pages
+  const hreflangPairs = [
+    { en: '/privacy', de: '/datenschutz' },
+    { en: '/terms', de: '/agb' },
+  ];
+
+  let xml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Main Pages -->`;
+
+  // Static pages
+  for (const page of staticPages) {
+    xml += `
+  <url>
+    <loc>https://saits.ai${page.loc}</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>${page.changefreq}</changefreq>
+    <priority>${page.priority}</priority>
+  </url>`;
+  }
+
+  // Industry pages
+  xml += `\n\n  <!-- Industry Pages -->`;
+  for (const slug of industryPages) {
+    xml += `
+  <url>
+    <loc>https://saits.ai/industries/${slug}</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>`;
+  }
+
+  // Dynamic Our Work pages from NocoDB
+  xml += `\n\n  <!-- Our Work (Dynamic from NocoDB) -->`;
+  xml += `
+  <url>
+    <loc>https://saits.ai/our-work</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>`;
+  for (const work of works) {
+    if (!work.Slug) continue;
+    xml += `
+  <url>
+    <loc>https://saits.ai/our-work/${work.Slug}</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>`;
+  }
+
+  // Articles
+  xml += `\n\n  <!-- Articles -->`;
+  for (const slug of articlePages) {
+    xml += `
+  <url>
+    <loc>https://saits.ai/articles/${slug}</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>`;
+  }
+
+  // Dynamic Blogs from NocoDB
+  xml += `\n\n  <!-- Blogs (Dynamic from NocoDB) -->`;
+  xml += `
+  <url>
+    <loc>https://saits.ai/blogs</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>`;
+  for (const blog of blogs) {
+    if (!blog.Slug) continue;
+    const lastmod = blog.Date ? new Date(blog.Date).toISOString().split('T')[0] : today;
+    xml += `
+  <url>
+    <loc>https://saits.ai/blogs/${blog.Slug}</loc>
+    <lastmod>${lastmod}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>`;
+  }
+
+  // Legal pages with hreflang cross-references
+  xml += `\n\n  <!-- Legal Pages -->`;
+  for (const pair of hreflangPairs) {
+    // English version
+    xml += `
+  <url>
+    <loc>https://saits.ai${pair.en}</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://saits.ai${pair.en}" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://saits.ai${pair.de}" />
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>`;
+    // German version
+    xml += `
+  <url>
+    <loc>https://saits.ai${pair.de}</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://saits.ai${pair.de}" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://saits.ai${pair.en}" />
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>`;
+  }
+
+  // Impressum (German only, no English pair)
+  xml += `
+  <url>
+    <loc>https://saits.ai/impressum</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>`;
+
+  xml += `\n</urlset>\n`;
+  return xml;
+}
+
 // ─── Main build function ────────────────────────────────────
 async function build() {
   console.log('Building site...');
@@ -391,11 +542,14 @@ async function build() {
   // Copy directories
   const dirs = ['css', 'js', 'assets', 'industries', 'case-studies', 'articles'];
 
-  // Copy SEO files
-  for (const seoFile of ['robots.txt', 'sitemap.xml']) {
-    if (await fs.pathExists(seoFile)) {
-      await fs.copy(seoFile, `dist/${seoFile}`);
-    }
+  // Generate dynamic sitemap.xml
+  const sitemapXml = generateSitemap(blogs, works);
+  await fs.writeFile('dist/sitemap.xml', sitemapXml);
+  console.log('  ✓ Generated sitemap.xml (with dynamic blog + our-work URLs)');
+
+  // Copy SEO files (robots.txt only — sitemap is now auto-generated)
+  if (await fs.pathExists('robots.txt')) {
+    await fs.copy('robots.txt', 'dist/robots.txt');
   }
   for (const dir of dirs) {
     if (await fs.pathExists(dir)) {
