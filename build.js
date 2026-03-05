@@ -191,9 +191,9 @@ function buildBlogListingPage(blogs, template) {
       : '/assets/og-image.png';
 
     return `
-        <article class="blog-card">
+        <article class="blog-card-full" style="background-image: url('${thumbUrl}');">
             <a href="/blogs/${blog.Slug}" class="blog-card-link">
-                <img src="${thumbUrl}" alt="${blog.Title || ''}" class="blog-card-img">
+                <div class="blog-card-overlay"></div>
                 <div class="blog-card-content">
                     <span class="blog-card-tag">${blog.Tag || ''}</span>
                     <h3 class="blog-card-title">${blog.Title || ''}</h3>
