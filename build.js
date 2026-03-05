@@ -294,16 +294,10 @@ async function buildOurWorkPage(work, template) {
 // ─── Build Our Work listing page ────────────────────────────
 function buildOurWorkListingPage(works, template) {
   const cards = works.map(work => {
-    // Generate a quick URL to the attachment for the thumbnail if available
-    let thumbUrl = '/assets/og-image.png';
-    if (work.HeroImage && work.HeroImage.length > 0) {
-      const firstImg = work.HeroImage[0];
-      // Axios uploads nested the properties slightly differently than UI uploads
-      const rawUrl = firstImg.signedPath || firstImg.url || firstImg.path || '';
-      if (rawUrl) {
-        thumbUrl = rawUrl.startsWith('http') ? rawUrl : `${NOCODB_URL}${rawUrl}`;
-      }
-    }
+    // Use the locally downloaded hero image (same path used by buildOurWorkPage)
+    const thumbUrl = work.HeroImage && work.HeroImage.length > 0
+      ? `/assets/our-work/${work.Slug}-hero.jpeg`
+      : '/assets/og-image.png';
 
     return `
         <article class="blog-card">
