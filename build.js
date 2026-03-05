@@ -177,10 +177,10 @@ async function buildBlogPage(blog, template) {
 // ─── Build blog listing page ────────────────────────────────
 function buildBlogListingPage(blogs, template) {
   const cards = blogs.map(blog => {
-    // Generate a quick URL to the attachment for the thumbnail if available
-    const thumbUrl = blog.CoverImage && blog.CoverImage.length > 0 ?
-      (blog.CoverImage[0].url.startsWith('http') ? blog.CoverImage[0].url : `${NOCODB_URL}${blog.CoverImage[0].url}`) :
-      '/assets/og-image.png';
+    // Use the locally downloaded cover image (same path used by buildBlogPage)
+    const thumbUrl = blog.CoverImage && blog.CoverImage.length > 0
+      ? `/assets/blogs/${blog.Slug}-cover.jpeg`
+      : '/assets/og-image.png';
 
     return `
         <article class="blog-card">
