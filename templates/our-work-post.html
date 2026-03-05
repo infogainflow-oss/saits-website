@@ -39,29 +39,15 @@
     <link rel="stylesheet" href="../css/cookie-banner.css">
     <style>
         .case-study-hero {
-            padding: 10rem 0 6rem;
-            position: relative;
-            background-size: cover;
-            background-position: center;
-            text-align: center;
+            padding: 8rem 0 5rem;
+            background: linear-gradient(135deg, #172554 0%, #1e3a8a 100%);
             color: white;
         }
 
-        .case-study-hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(23, 37, 84, 0.95) 0%, rgba(30, 58, 138, 0.85) 100%);
-            z-index: 1;
-        }
-
         .case-study-hero .container {
-            position: relative;
-            z-index: 2;
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
+            text-align: left;
         }
 
         .case-study-hero .article-tag {
@@ -88,8 +74,22 @@
             font-size: 1.25rem;
             color: rgba(255, 255, 255, 0.85);
             max-width: 700px;
-            margin: 0 auto;
             line-height: 1.6;
+        }
+
+        .challenge-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+            margin-bottom: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .challenge-split {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
         }
 
         .article-content {
@@ -98,7 +98,7 @@
         }
 
         .article-content .container {
-            max-width: 800px;
+            max-width: 1000px;
             margin: 0 auto;
         }
 
@@ -176,6 +176,10 @@
             border: 1px solid #f3f4f6;
         }
 
+        .challenge-split .case-study-image {
+            margin: 0;
+        }
+
         .article-cta {
             background: #172554;
             padding: 5rem 0;
@@ -244,8 +248,7 @@
     </div>
 
     <main>
-        <section class="case-study-hero" style="background-image: url('{{hero_image}}');">
-            <div class="case-study-hero-overlay"></div>
+        <section class="case-study-hero">
             <div class="container">
                 <span class="article-tag">{{industry}}</span>
                 <h1>{{title}}</h1>
@@ -255,8 +258,15 @@
 
         <section class="article-content">
             <div class="container">
-                <h2>The Challenge</h2>
-                {{challenge_body}}
+                <div class="challenge-split">
+                    <div class="challenge-text">
+                        <h2>The Challenge</h2>
+                        {{challenge_body}}
+                    </div>
+                    <div class="challenge-image">
+                        <img src="{{hero_image}}" alt="{{title}} Challenge" class="case-study-image">
+                    </div>
+                </div>
 
                 <h2>The Solution</h2>
                 {{solution_image_html}}
