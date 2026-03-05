@@ -39,12 +39,29 @@
     <link rel="stylesheet" href="../css/cookie-banner.css">
     <style>
         .article-hero {
-            padding: 8rem 0 4rem;
-            background: linear-gradient(135deg, #172554 0%, #1e3a8a 100%);
+            padding: 10rem 0 6rem;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            color: white;
+        }
+
+        .article-hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(23, 37, 84, 0.92) 0%, rgba(30, 58, 138, 0.85) 100%);
+            z-index: 1;
         }
 
         .article-hero-content {
             max-width: 800px;
+            position: relative;
+            z-index: 2;
+            margin: 0 auto;
         }
 
         .article-hero .article-tag {
@@ -195,7 +212,8 @@
     </div>
 
     <main>
-        <section class="article-hero">
+        <section class="article-hero" style="background-image: url('{{cover_image}}');">
+            <div class="article-hero-overlay"></div>
             <div class="container">
                 <div class="article-hero-content">
                     <span class="article-tag">{{tag}}</span>
@@ -204,9 +222,6 @@
                 </div>
             </div>
         </section>
-
-        <!-- Cover Image -->
-        {{cover_image_html}}
 
         <section class="article-content">
             <div class="container">
