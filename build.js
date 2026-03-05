@@ -30,6 +30,14 @@ async function downloadNocoDbAttachment(attachment, localPath) {
   // If it's already a relative path, it's not a nocodb attachment
   if (!url.startsWith('http')) return url;
 
+  // Check if we already downloaded this exact image in a previous build!
+  // If we did, skip the download to save bandwidth and build time.
+  const relativePublicPath = localPath.replace('dist', '');
+  if (await fs.pathExists(localPath)) {
+    console.log(`    Cached: ${relativePublicPath}`);
+    return relativePublicPath;
+  }
+
   const fullUrl = url.startsWith('/') ? `${NOCODB_URL}${url}` : url;
 
   try {
@@ -43,7 +51,7 @@ async function downloadNocoDbAttachment(attachment, localPath) {
     await fs.writeFile(localPath, Buffer.from(buffer));
 
     // Return the relative public path for HTML injection
-    return localPath.replace('dist', '');
+    return relativePublicPath;
   } catch (err) {
     console.error(`Error downloading image ${url}:`, err);
     return '';
