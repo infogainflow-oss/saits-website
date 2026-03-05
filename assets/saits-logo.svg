@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 38" width="120" height="38" fill="none">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&amp;display=swap');
+    </style>
+  </defs>
+  <text
+    x="0"
+    y="28"
+    font-family="Inter, -apple-system, 'system-ui', sans-serif"
+    font-size="19"
+    font-weight="500"
+    letter-spacing="5.4"
+    fill="#ffffff"
+    text-transform="uppercase"
+  >SΛITS</text>
+</svg>

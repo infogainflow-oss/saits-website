@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>85% Cost Reduction: Document Processing Transformation | SAITS</title>
+    <meta name="description"
+        content="Case study: How a leading private bank automated their document workflow, achieving dramatic operational improvements.">
+  <link rel="canonical" href="https://saits.ai/articles/document-processing-transformation">
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Serif+Display&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .article-hero {
+            padding: 8rem 0 4rem;
+            background: linear-gradient(135deg, #172554 0%, #FF5C00 100%);
+        }
+
+        .article-hero-content {
+            max-width: 800px;
+        }
+
+        .article-hero .article-tag {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .article-hero h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 400;
+            color: white;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .article-hero .article-meta {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.875rem;
+        }
+
+        .article-content {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .article-content .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .article-content h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.75rem;
+            color: #172554;
+            margin: 2.5rem 0 1rem;
+        }
+
+        .article-content h3 {
+            font-size: 1.25rem;
+            color: #172554;
+            margin: 2rem 0 1rem;
+            font-weight: 600;
+        }
+
+        .article-content p {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: #4b5563;
+            margin-bottom: 1.5rem;
+        }
+
+        .article-content ul,
+        .article-content ol {
+            margin: 1.5rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .article-content li {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: #4b5563;
+            margin-bottom: 0.75rem;
+        }
+
+        .article-callout {
+            background: #f8f9fa;
+            border-left: 4px solid #FF5C00;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .article-callout p {
+            margin: 0;
+            font-style: italic;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .result-item {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .result-item h4 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 2.5rem;
+            color: #172554;
+            margin-bottom: 0.5rem;
+        }
+
+        .result-item p {
+            margin: 0;
+            color: #6b7280;
+            font-size: 0.875rem;
+        }
+
+        .article-cta {
+            background: #172554;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .article-cta h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .article-cta p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+  <meta property="og:image" content="https://saits.ai/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://saits.ai/assets/og-image.png">
+
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "publisher": {
+    "@type": "Organization",
+    "name": "SAITS",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://saits.ai/assets/saits-logo.svg"
+    }
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "SAITS"
+  },
+  "url": "https://saits.ai/articles/document-processing-transformation"
+}</script>
+
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://saits.ai/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Insights",
+      "item": "https://saits.ai/#insights"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Document Processing Transformation",
+      "item": "https://saits.ai/articles/document-processing-transformation"
+    }
+  ]
+}</script>
+</head>
+
+<body>
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="/" class="logo-link"><img src="../assets/saits-logo.svg" alt="SAITS" class="logo-img"></a>
+                <nav class="nav">
+                    <div class="nav-dropdown">
+                        <a href="/industries" class="nav-link">Industries <svg width="10" height="6"
+                                viewBox="0 0 10 6">
+                                <path d="M1 1l4 4 4-4" stroke="currentColor" fill="none" stroke-width="1.5" />
+                            </svg></a>
+                        <div class="dropdown-menu">
+                            <a href="/industries/real-estate">Real Estate</a>
+                            <a href="/industries/financial-services">Financial Services</a>
+                            <a href="/industries/construction">Construction</a>
+                            <a href="/industries/manufacturing">Manufacturing</a>
+                            <a href="/industries/consumer-retail">Retail</a>
+                            <a href="/industries/public-sector">Public Sector</a>
+                        </div>
+                    </div>
+                    <a href="/services" class="nav-link">Services</a>
+                    
+                    <a href="/about" class="nav-link">About</a>
+                    <a href="/contact" class="nav-link">Contact</a>
+                </nav>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu"><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <nav class="mobile-nav">
+            <a href="/industries" class="mobile-nav-link">Industries</a>
+            <a href="/services" class="mobile-nav-link">Services</a>
+            <a href="/about" class="mobile-nav-link">About</a>
+            <a href="/contact" class="mobile-nav-link">Contact</a>
+        </nav>
+    </div>
+
+    <main>
+        <section class="article-hero">
+            <div class="container">
+                <div class="article-hero-content">
+                    <span class="article-tag">Case Study</span>
+                    <h1>85% Cost Reduction: Document Processing Transformation</h1>
+                    <p class="article-meta">8 min read • Financial Services</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="article-content">
+            <div class="container">
+                <p><strong>When a leading private bank approached us, their loan application processing was consuming
+                        enormous resources.</strong> Each application required manual review of dozens of
+                    documents—income statements, tax returns, property valuations, and identification papers. The
+                    process was slow, error-prone, and expensive.</p>
+
+                <p>This is the story of how we transformed their document processing workflow, achieving an 85%
+                    reduction in processing costs while improving accuracy and customer satisfaction.</p>
+
+                <h2>The Starting Point</h2>
+                <p>The bank's lending team was struggling with a growing backlog. Each loan application required:</p>
+                <ul>
+                    <li>Manual review of 15-30 documents per application</li>
+                    <li>Data entry from documents into core banking systems</li>
+                    <li>Cross-validation of information across multiple sources</li>
+                    <li>Compliance checks for KYC and AML requirements</li>
+                </ul>
+
+                <p>The average application took 3 business days to process. During peak periods, this stretched to 5+
+                    days. Customer complaints were rising, and the cost per application was becoming unsustainable.</p>
+
+                <div class="results-grid">
+                    <div class="result-item">
+                        <h4>3 Days</h4>
+                        <p>Average processing time (before)</p>
+                    </div>
+                    <div class="result-item">
+                        <h4>12%</h4>
+                        <p>Error rate requiring rework</p>
+                    </div>
+                    <div class="result-item">
+                        <h4>15 FTE</h4>
+                        <p>Staff dedicated to document processing</p>
+                    </div>
+                    <div class="result-item">
+                        <h4>Growing</h4>
+                        <p>Customer complaint volume</p>
+                    </div>
+                </div>
+
+                <h2>Our Approach</h2>
+                <p>We proposed an AI-powered document processing system with four key components:</p>
+
+                <h3>1. Intelligent Document Classification</h3>
+                <p>The first step was teaching the AI to recognize different document types. Using computer vision and
+                    natural language processing, the system learned to identify:</p>
+                <ul>
+                    <li>Identity documents (passports, ID cards, residence permits)</li>
+                    <li>Income documentation (salary slips, employment contracts, tax returns)</li>
+                    <li>Property documents (valuations, floor plans, land registry extracts)</li>
+                    <li>Financial statements (bank statements, investment portfolios)</li>
+                </ul>
+                <p>Documents are automatically routed to the appropriate extraction pipeline based on their type.</p>
+
+                <h3>2. Data Extraction Engine</h3>
+                <p>Custom-trained models extract key data points from each document type. For a salary slip, this
+                    includes employer name, gross salary, net salary, pay period, and deductions. For a property
+                    valuation, it captures address, estimated value, valuation date, and property type.</p>
+                <p>The extraction engine handles:</p>
+                <ul>
+                    <li>Printed and scanned documents</li>
+                    <li>Multiple languages (German, French, Italian, English)</li>
+                    <li>Various formats from different institutions</li>
+                    <li>Low-quality scans and photos</li>
+                </ul>
+
+                <h3>3. Cross-Validation System</h3>
+                <p>Extracted data doesn't exist in isolation. The AI validates consistency across documents:</p>
+                <ul>
+                    <li>Does the name on the ID match the name on the salary slip?</li>
+                    <li>Is the property address consistent across all documents?</li>
+                    <li>Do the stated income and bank statement deposits align?</li>
+                </ul>
+                <p>Discrepancies are flagged for human review with clear explanations.</p>
+
+                <h3>4. Human-in-the-Loop Workflow</h3>
+                <p>We designed the system to augment humans, not replace them. Complex cases and edge scenarios are
+                    escalated with all relevant context, allowing staff to make informed decisions quickly.</p>
+
+                <div class="article-callout">
+                    <p>"The system handles the repetitive work perfectly. Our team now focuses on the cases that
+                        actually need their expertise—unusual situations, complex structures, exceptions. It's a much
+                        better use of their skills."</p>
+                    <p style="margin-top: 1rem; font-style: normal;"><strong>— Head of Lending Operations</strong></p>
+                </div>
+
+                <h2>Implementation Journey</h2>
+                <p>The project was delivered in three phases over 12 weeks:</p>
+
+                <h3>Phase 1: Core Engine (Weeks 1-4)</h3>
+                <p>We focused on the highest-volume document types: income statements and identification documents. The
+                    AI was trained on 5,000+ historical documents, achieving 95% extraction accuracy by week 4.</p>
+
+                <h3>Phase 2: Expansion (Weeks 5-8)</h3>
+                <p>We added property documents and financial statements to the system. The cross-validation logic was
+                    implemented and tested against known cases.</p>
+
+                <h3>Phase 3: Integration (Weeks 9-12)</h3>
+                <p>The system was connected to the bank's core banking platform. Extracted data flows directly into the
+                    application workflow. Staff dashboards were deployed for exception handling.</p>
+
+                <h2>The Results</h2>
+                <p>Within the first month of full deployment, the transformation was evident:</p>
+
+                <div class="results-grid">
+                    <div class="result-item">
+                        <h4>4 Hours</h4>
+                        <p>New average processing time</p>
+                    </div>
+                    <div class="result-item">
+                        <h4>99.2%</h4>
+                        <p>Extraction accuracy</p>
+                    </div>
+                    <div class="result-item">
+                        <h4>85%</h4>
+                        <p>Cost reduction per application</p>
+                    </div>
+                    <div class="result-item">
+                        <h4>+18 pts</h4>
+                        <p>NPS improvement</p>
+                    </div>
+                </div>
+
+                <h3>Quantified Benefits</h3>
+                <ul>
+                    <li><strong>Processing time:</strong> Reduced from 3 days to 4 hours average</li>
+                    <li><strong>Staff redeployment:</strong> 10 FTE moved to higher-value customer-facing roles</li>
+                    <li><strong>Error reduction:</strong> Rework rate dropped from 12% to under 1%</li>
+                    <li><strong>Customer satisfaction:</strong> NPS increased by 18 points</li>
+                    <li><strong>Annual savings:</strong> CHF 1.2 million in operational costs</li>
+                </ul>
+
+                <h2>Key Success Factors</h2>
+                <p>Looking back at this project, several factors were critical to its success:</p>
+                <ol>
+                    <li><strong>Quality training data:</strong> The bank had well-organized historical documents we
+                        could use for training</li>
+                    <li><strong>Clear scope:</strong> We started with a defined document set rather than trying to
+                        handle everything at once</li>
+                    <li><strong>Change management:</strong> Staff were involved throughout and understood the system
+                        would help them, not replace them</li>
+                    <li><strong>Iterative approach:</strong> We improved the models continuously based on real-world
+                        feedback</li>
+                    <li><strong>Executive sponsorship:</strong> Leadership was committed to the transformation</li>
+                </ol>
+
+                <h2>Looking Forward</h2>
+                <p>The bank has since expanded the system to additional use cases including mortgage renewals, wealth
+                    management onboarding, and corporate lending. The foundation we built together continues to deliver
+                    value across the organization.</p>
+            </div>
+        </section>
+
+        <section class="article-cta">
+            <div class="container">
+                <h2>Ready to transform your document processing?</h2>
+                <p>Let's discuss how we can achieve similar results for your organization.</p>
+                <a href="/contact" class="btn btn-white">Start a Conversation</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="logo-link"><img src="../assets/saits-logo.svg" alt="SAITS" class="logo-img"></a>
+                    <p>Swiss-based AI automation, serving clients globally.</p>
+                </div>
+                <div class="footer-section">
+                    <h5>Company</h5>
+                    <ul class="footer-links">
+                        
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 SAITS. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

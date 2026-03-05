@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automotive & Assembly | SAITS</title>
+    <meta name="description"
+        content="AI automation for automotive and assembly. Production optimization, quality control, and supply chain management.">
+  <link rel="canonical" href="https://saits.ai/industries/automotive">
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Serif+Display&family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .industry-hero {
+            min-height: 70vh;
+            background: linear-gradient(135deg, #051C2C 0%, #9D00FF 100%);
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+            padding-bottom: 4rem;
+            overflow: hidden
+        }
+
+        .industry-hero::before {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 60%;
+            height: 100%;
+            background: url('../assets/hero-bg.png') center/cover;
+            opacity: 0.3;
+            mask-image: linear-gradient(to left, black, transparent);
+            -webkit-mask-image: linear-gradient(to left, black, transparent)
+        }
+
+        .industry-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 600px
+        }
+
+        .industry-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 6vw, 4.5rem);
+            font-weight: 400;
+            color: white;
+            line-height: 1.1;
+            margin-bottom: 1.5rem
+        }
+
+        .industry-hero p {
+            font-size: 1.125rem;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.7;
+            max-width: 500px
+        }
+
+        .industry-subnav {
+            background: #051C2C;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: sticky;
+            top: 70px;
+            z-index: 100
+        }
+
+        .industry-subnav .container {
+            display: flex;
+            gap: 2rem
+        }
+
+        .industry-subnav a {
+            padding: 1rem 0;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.875rem;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s
+        }
+
+        .industry-subnav a:hover,
+        .industry-subnav a.active {
+            color: white;
+            border-bottom-color: #9D00FF
+        }
+
+        .intro-section {
+            padding: 5rem 0;
+            background: white
+        }
+
+        .intro-text {
+            max-width: 900px;
+            font-size: 1.375rem;
+            line-height: 1.7;
+            color: #333
+        }
+
+        .help-section {
+            padding: 4rem 0;
+            background: white;
+            border-top: 1px solid #e5e5e5
+        }
+
+        .help-section-header {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: #666;
+            margin-bottom: 2rem
+        }
+
+        .help-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem
+        }
+
+        .help-item h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #051C2C;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem
+        }
+
+        .help-item h4::after {
+            content: '›';
+            color: #9D00FF;
+            font-size: 1.25rem;
+            font-weight: 400
+        }
+
+        .help-item p {
+            font-size: 0.9375rem;
+            color: #666;
+            line-height: 1.6
+        }
+
+        .capabilities-section {
+            padding: 4rem 0;
+            background: #f5f5f5
+        }
+
+        .capabilities-header {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: #666;
+            margin-bottom: 2rem
+        }
+
+        .capabilities-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem
+        }
+
+        .capability-card {
+            background: white;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s
+        }
+
+        .capability-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1)
+        }
+
+        .capability-card-image {
+            height: 200px
+        }
+
+        .capability-card-content {
+            padding: 1.5rem
+        }
+
+        .capability-card h4 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #051C2C;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem
+        }
+
+        .capability-card h4::after {
+            content: '›';
+            color: #9D00FF;
+            font-size: 1.25rem;
+            font-weight: 400
+        }
+
+        .capability-card p {
+            font-size: 0.9375rem;
+            color: #666;
+            line-height: 1.6
+        }
+
+        .stats-bar {
+            background: #051C2C;
+            padding: 4rem 0
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            text-align: center
+        }
+
+        .stat-item h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 400;
+            color: white;
+            margin-bottom: 0.5rem
+        }
+
+        .stat-item p {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.7)
+        }
+
+        .industry-cta {
+            padding: 5rem 0;
+            background: white;
+            text-align: center
+        }
+
+        .industry-cta h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 400;
+            margin-bottom: 1rem
+        }
+
+        .industry-cta p {
+            color: #666;
+            margin-bottom: 2rem
+        }
+
+        @media(max-width:1024px) {
+            .help-grid {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            .capabilities-grid {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr)
+            }
+        }
+
+        @media(max-width:768px) {
+            .help-grid {
+                grid-template-columns: 1fr
+            }
+
+            .capabilities-grid {
+                grid-template-columns: 1fr
+            }
+
+            .industry-subnav .container {
+                overflow-x: auto
+            }
+        }
+    </style>
+
+  <meta property="og:image" content="https://saits.ai/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://saits.ai/assets/og-image.png">
+
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "AI Automation for Automotive",
+  "provider": {
+    "@type": "Organization",
+    "name": "SAITS"
+  },
+  "areaServed": "Worldwide",
+  "description": "AI automation for automotive — quality inspection, supply chain management, predictive maintenance, and customer service."
+}</script>
+
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://saits.ai/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Industries",
+      "item": "https://saits.ai/industries"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Automotive",
+      "item": "https://saits.ai/industries/automotive"
+    }
+  ]
+}</script>
+</head>
+
+<body>
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="/" class="logo-link"><img src="../assets/saits-logo.svg" alt="SAITS" class="logo-img"></a>
+                <nav class="nav">
+                    <div class="nav-dropdown">
+                        <a href="/industries" class="nav-link">Industries <svg width="10" height="6"
+                                viewBox="0 0 10 6">
+                                <path d="M1 1l4 4 4-4" stroke="currentColor" fill="none" stroke-width="1.5" />
+                            </svg></a>
+                        <div class="dropdown-menu">
+                            
+                            <a href="/industries/financial-services">Financial Services</a>
+                            <a href="/industries/healthcare">Healthcare</a>
+                            <a href="/industries/manufacturing">Manufacturing</a>
+                            <a href="/industries/consumer-retail">Consumer & Retail</a>
+                            <a href="/industries/logistics">Logistics</a>
+                            <a href="/industries/real-estate">Real Estate</a>
+                            <a href="/industries/construction">Engineering & Construction</a>
+                            <a href="/industries/automotive">Automotive & Assembly</a>
+                            <a href="/industries/education">Education</a>
+                            <a href="/industries/public-sector">Public Sector</a>
+                        </div>
+                    </div>
+                    <a href="/services" class="nav-link">Services</a>
+                    
+                    <a href="/about" class="nav-link">About</a>
+                    <a href="/contact" class="nav-link">Contact</a>
+                </nav>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu"><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <nav class="mobile-nav">
+            <a href="/industries" class="mobile-nav-link">Industries</a>
+            <a href="/services" class="mobile-nav-link">Services</a>
+            <a href="/about" class="mobile-nav-link">About</a>
+            <a href="/contact" class="mobile-nav-link">Contact</a>
+        </nav>
+    </div>
+
+    <main>
+        <section class="industry-hero">
+            <div class="container">
+                <div class="industry-hero-content">
+                    <h1>Automotive & Assembly</h1>
+                    <p>Helping automotive manufacturers and suppliers optimize production, ensure quality, and navigate
+                        digital transformation.</p>
+                </div>
+            </div>
+        </section>
+
+        <nav class="industry-subnav">
+            <div class="container">
+                <a href="#" class="active">How We Help</a>
+                
+                <a href="/contact">Contact Us</a>
+            </div>
+        </nav>
+
+        <section class="intro-section">
+            <div class="container">
+                <p class="intro-text">The automotive industry is undergoing unprecedented transformation. Our AI
+                    solutions help OEMs and suppliers optimize assembly operations, maintain quality standards, and
+                    adapt to changing market demands—from electrification to autonomous driving.</p>
+            </div>
+        </section>
+
+        <section class="help-section">
+            <div class="container">
+                <p class="help-section-header">How We Help Clients</p>
+                <div class="help-grid">
+                    <div class="help-item">
+                        <h4>Production Optimization</h4>
+                        <p>AI-driven line balancing and scheduling that maximizes throughput while minimizing changeover
+                            time and inventory.</p>
+                    </div>
+                    <div class="help-item">
+                        <h4>Quality Assurance</h4>
+                        <p>Computer vision inspection systems that detect defects in real-time, reducing rework and
+                            warranty claims.</p>
+                    </div>
+                    <div class="help-item">
+                        <h4>Supply Chain</h4>
+                        <p>Predictive demand planning and just-in-time inventory optimization that ensures parts
+                            availability without excess stock.</p>
+                    </div>
+                    <div class="help-item">
+                        <h4>Predictive Maintenance</h4>
+                        <p>Equipment health monitoring that predicts failures and schedules maintenance during planned
+                            downtime.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats-bar">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <h3>30%</h3>
+                        <p>Reduction in defects</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>25%</h3>
+                        <p>Lower inventory costs</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>40%</h3>
+                        <p>Less unplanned downtime</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>15%</h3>
+                        <p>Improved throughput</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="capabilities-section">
+            <div class="container">
+                <p class="capabilities-header">Featured Capabilities</p>
+                <div class="capabilities-grid">
+                    <div class="capability-card">
+                        <div class="capability-card-image" style="background:linear-gradient(135deg,#9D00FF,#E91E8C)">
+                        </div>
+                        <div class="capability-card-content">
+                            <h4>EV Battery Analytics</h4>
+                            <p>Quality monitoring and performance prediction for battery cell production and pack
+                                assembly.</p>
+                        </div>
+                    </div>
+                    <div class="capability-card">
+                        <div class="capability-card-image" style="background:linear-gradient(135deg,#143CFF,#9D00FF)">
+                        </div>
+                        <div class="capability-card-content">
+                            <h4>Supplier Intelligence</h4>
+                            <p>Risk assessment and performance analytics across your supplier network for proactive
+                                management.</p>
+                        </div>
+                    </div>
+                    <div class="capability-card">
+                        <div class="capability-card-image" style="background:linear-gradient(135deg,#FF5C00,#143CFF)">
+                        </div>
+                        <div class="capability-card-content">
+                            <h4>Connected Vehicle Data</h4>
+                            <p>Analytics on telematics and connected vehicle data for quality insights and customer
+                                experience.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="industry-cta">
+            <div class="container">
+                <h2>Ready to accelerate your automotive transformation?</h2>
+                <p>Let's discuss AI solutions for your manufacturing operations.</p>
+                <a href="/contact" class="btn btn-outline">Contact Us</a>
+            </div>
+        </section>
+    
+    <!-- FAQ Section -->
+    <section class="faq-section" style="padding: 5rem 0; background: #f9fafb;">
+        <div class="container">
+            <div class="section-header" style="text-align: center; margin-bottom: 3rem;">
+                <h2 style="font-family: 'DM Serif Display', serif; font-size: 2.25rem; color: #1f2937;">Frequently Asked Questions</h2>
+            </div>
+            <div class="faq-list" style="max-width: 800px; margin: 0 auto;">
+
+            <details class="faq-item">
+                <summary class="faq-question">How does SAITS help businesses in automotive?</summary>
+                <div class="faq-answer"><p>We analyze your specific workflows to identify high-impact automation opportunities. Our AI solutions handle repetitive tasks like document processing, data entry, and communication — typically saving 40+ hours per week while improving accuracy and compliance.</p></div>
+            </details>
+
+            <details class="faq-item">
+                <summary class="faq-question">How long does implementation take?</summary>
+                <div class="faq-answer"><p>Most industry-specific solutions are deployed within 4 weeks. We follow a structured 5-step process (Discovery, Analysis, Design, Build, Support) to ensure minimal disruption to your operations.</p></div>
+            </details>
+
+            <details class="faq-item">
+                <summary class="faq-question">Is the solution GDPR and privacy compliant?</summary>
+                <div class="faq-answer"><p>Yes. All SAITS solutions are built with GDPR and Swiss data protection compliance as a core requirement. We use European data hosting and implement industry-specific compliance standards.</p></div>
+            </details>
+            </div>
+        </div>
+    </section>
+    <style>
+        .faq-item { border-bottom: 1px solid #e5e7eb; }
+        .faq-question { padding: 1.25rem 0; font-size: 1.0625rem; font-weight: 600; color: #172554; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+        .faq-question::after { content: '+'; font-size: 1.5rem; font-weight: 300; color: #6b7280; transition: transform 0.2s; }
+        details[open] .faq-question::after { content: '−'; }
+        .faq-question::-webkit-details-marker { display: none; }
+        .faq-answer { padding: 0 0 1.25rem; }
+        .faq-answer p { color: #4b5563; line-height: 1.7; font-size: 0.9375rem; }
+    </style>
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How does SAITS help businesses in automotive?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We analyze your specific workflows to identify high-impact automation opportunities. Our AI solutions handle repetitive tasks like document processing, data entry, and communication — typically saving 40+ hours per week while improving accuracy and compliance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does implementation take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most industry-specific solutions are deployed within 4 weeks. We follow a structured 5-step process (Discovery, Analysis, Design, Build, Support) to ensure minimal disruption to your operations."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the solution GDPR and privacy compliant?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. All SAITS solutions are built with GDPR and Swiss data protection compliance as a core requirement. We use European data hosting and implement industry-specific compliance standards."
+      }
+    }
+  ]
+}</script>
+  </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="logo-link"><img src="../assets/saits-logo.svg" alt="SAITS" class="logo-img"></a>
+                    <p>AI automation for Swiss businesses.</p>
+                    <div class="footer-contact">
+                        <a href="mailto:hello@saits.ai">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                <polyline points="22,6 12,13 2,6" />
+                            </svg>
+                            hello@saits.ai
+                        </a>
+                        <span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                <circle cx="12" cy="10" r="3" />
+                            </svg>
+                            Zürich, Switzerland
+                        </span>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h5>Services</h5>
+                    <ul class="footer-links">
+                        <li><a href="/services">AI Automation</a></li>
+                        <li><a href="/services">External CAO/CAIO</a></li>
+                        <li><a href="/services">AI Training</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h5>Company</h5>
+                    <ul class="footer-links">
+                        <li><a href="/about">About</a></li>
+                        
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h5>Legal</h5>
+                    <ul class="footer-links">
+                        <li><a href="/privacy">Privacy Policy</a></li>
+                        <li><a href="/impressum">Impressum</a></li>
+            <li><a href="/agb">AGB</a></li>
+                        <li><a href="/terms">Terms & Conditions</a></li>
+            <li><a href="/datenschutz">Datenschutz</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 SAITS. All rights reserved.</p>
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/company/saits-ai/" target="_blank" rel="noopener"
+                        aria-label="LinkedIn">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                        </svg>
+                    </a>
+                    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Back to top">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 15l-6-6-6 6" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

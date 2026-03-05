@@ -1,0 +1,12 @@
+# SAITS Website — robots.txt
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://saits.ai/sitemap.xml
+
+# Disallow admin/build artifacts
+Disallow: /dashboard/
+Disallow: /nocodb-import/
+Disallow: /templates/
+Disallow: /content/

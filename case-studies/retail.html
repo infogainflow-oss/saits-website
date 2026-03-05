@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study: Retail | SAITS</title>
+    <meta name="description"
+        content="How a retail chain automated 70% of customer support inquiries with AI, saving CHF 200k annually.">
+  <link rel="canonical" href="https://saits.ai/case-studies/retail">
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Serif+Display&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .case-hero {
+            min-height: 50vh;
+            background: linear-gradient(135deg, #172554 0%, #E91E8C 100%);
+            display: flex;
+            align-items: flex-end;
+            padding: 6rem 0 3rem;
+        }
+
+        .case-hero-content {
+            max-width: 800px;
+        }
+
+        .case-hero .industry-tag {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .case-hero h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 400;
+            color: white;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .case-hero p {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.7;
+        }
+
+        .case-metrics {
+            background: #172554;
+            padding: 3rem 0;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .metric-item h3 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 3rem;
+            font-weight: 400;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-item p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.875rem;
+        }
+
+        .case-content {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .case-content .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .case-section {
+            margin-bottom: 3rem;
+        }
+
+        .case-section h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 2rem;
+            color: #172554;
+            margin-bottom: 1.5rem;
+        }
+
+        .case-section p {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: #4b5563;
+            margin-bottom: 1rem;
+        }
+
+        .case-section ul {
+            margin: 1.5rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .case-section li {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: #4b5563;
+            margin-bottom: 0.75rem;
+        }
+
+        .highlight-box {
+            background: #f8f9fa;
+            border-left: 4px solid #E91E8C;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .highlight-box p {
+            font-style: italic;
+            margin: 0;
+        }
+
+        .case-cta {
+            background: #172554;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .case-cta h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .case-cta p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .metrics-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+
+  <meta property="og:image" content="https://saits.ai/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://saits.ai/assets/og-image.png">
+
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://saits.ai/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Case Studies",
+      "item": "https://saits.ai/work"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Retail",
+      "item": "https://saits.ai/case-studies/retail"
+    }
+  ]
+}</script>
+</head>
+
+<body>
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="/" class="logo-link"><img src="../assets/saits-logo.svg" alt="SAITS" class="logo-img"></a>
+                <nav class="nav">
+                    <div class="nav-dropdown">
+                        <a href="/industries" class="nav-link">Industries <svg width="10" height="6"
+                                viewBox="0 0 10 6">
+                                <path d="M1 1l4 4 4-4" stroke="currentColor" fill="none" stroke-width="1.5" />
+                            </svg></a>
+                        <div class="dropdown-menu">
+                            <a href="/industries/real-estate">Real Estate</a>
+                            <a href="/industries/financial-services">Financial Services</a>
+                            <a href="/industries/construction">Construction</a>
+                            <a href="/industries/manufacturing">Manufacturing</a>
+                            <a href="/industries/consumer-retail">Retail</a>
+                            <a href="/industries/public-sector">Public Sector</a>
+                        </div>
+                    </div>
+                    <a href="/services" class="nav-link">Services</a>
+                    
+                    <a href="/about" class="nav-link">About</a>
+                    <a href="/contact" class="nav-link">Contact</a>
+                </nav>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu"><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <nav class="mobile-nav">
+            <a href="/industries" class="mobile-nav-link">Industries</a>
+            <a href="/services" class="mobile-nav-link">Services</a>
+            <a href="/about" class="mobile-nav-link">About</a>
+            <a href="/contact" class="mobile-nav-link">Contact</a>
+        </nav>
+    </div>
+
+    <main>
+        <section class="case-hero">
+            <div class="container">
+                <div class="case-hero-content">
+                    <span class="industry-tag">Retail</span>
+                    <h1>Customer Support That Scales Automatically</h1>
+                    <p>How a retail chain deployed AI-powered customer support that handles 70% of inquiries
+                        automatically while maintaining high customer satisfaction.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-metrics">
+            <div class="container">
+                <div class="metrics-grid">
+                    <div class="metric-item">
+                        <h3>70%</h3>
+                        <p>Automated Resolution</p>
+                    </div>
+                    <div class="metric-item">
+                        <h3>90%</h3>
+                        <p>Customer Satisfaction</p>
+                    </div>
+                    <div class="metric-item">
+                        <h3>CHF 200k</h3>
+                        <p>Annual Savings</p>
+                    </div>
+                    <div class="metric-item">
+                        <h3>24/7</h3>
+                        <p>Availability</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-content">
+            <div class="container">
+                <div class="case-section">
+                    <h2>The Challenge</h2>
+                    <p>A mid-sized retail chain with 45 stores across Europe was struggling to keep up with customer
+                        service demands. Their support team was overwhelmed with repetitive inquiries about order
+                        status, return policies, and store information.</p>
+                    <p>Key challenges included:</p>
+                    <ul>
+                        <li><strong>High volume:</strong> 2,500+ customer inquiries per week across email, chat, and
+                            phone</li>
+                        <li><strong>Long wait times:</strong> Average response time of 18 hours for email inquiries
+                        </li>
+                        <li><strong>Limited hours:</strong> Support only available Monday-Friday, 9am-6pm</li>
+                        <li><strong>Repetitive questions:</strong> 65% of inquiries were about order tracking, returns,
+                            or store hours</li>
+                        <li><strong>Multilingual needs:</strong> Customers required support in 4 languages</li>
+                    </ul>
+                </div>
+
+                <div class="case-section">
+                    <h2>Our Solution</h2>
+                    <p>We implemented an AI-powered customer support system that handles common inquiries automatically
+                        while seamlessly escalating complex issues to human agents.</p>
+                    <p><strong>Key components:</strong></p>
+                    <ul>
+                        <li><strong>Intelligent Chatbot:</strong> Conversational AI trained on thousands of past
+                            customer interactions</li>
+                        <li><strong>Order Tracking Integration:</strong> Real-time connection to ERP and logistics
+                            systems</li>
+                        <li><strong>Multilingual Support:</strong> Native support for German, French, Italian, and
+                            English</li>
+                        <li><strong>Smart Escalation:</strong> Automatic handoff to human agents for complex issues with
+                            full context</li>
+                        <li><strong>Sentiment Analysis:</strong> Real-time detection of frustrated customers for
+                            priority handling</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box">
+                    <p>"Our customers love getting instant answers at midnight. What surprised us most was how natural
+                        the conversations feel – many customers don't realize they're chatting with AI."</p>
+                    <p style="margin-top: 1rem; font-style: normal;"><strong>— Customer Experience Director</strong>
+                    </p>
+                </div>
+
+                <div class="case-section">
+                    <h2>Implementation</h2>
+                    <p>The implementation was completed in 10 weeks:</p>
+                    <ul>
+                        <li><strong>Phase 1 (Weeks 1-3):</strong> Analysis of historical support tickets and
+                            conversation patterns</li>
+                        <li><strong>Phase 2 (Weeks 4-6):</strong> AI model training and integration with order
+                            management systems</li>
+                        <li><strong>Phase 3 (Weeks 7-8):</strong> Multilingual capability development and testing</li>
+                        <li><strong>Phase 4 (Weeks 9-10):</strong> Soft launch with 10% of traffic, then full rollout
+                        </li>
+                    </ul>
+                    <p>We implemented a continuous learning system that improves responses based on customer feedback
+                        and agent corrections.</p>
+                </div>
+
+                <div class="case-section">
+                    <h2>Results</h2>
+                    <p>Within three months of full deployment:</p>
+                    <ul>
+                        <li><strong>70% automated resolution:</strong> Up from 0% – the majority of common inquiries
+                            now resolved without human intervention</li>
+                        <li><strong>90% customer satisfaction:</strong> Measured through post-interaction surveys,
+                            exceeding the previous 82%</li>
+                        <li><strong>2 minutes average response:</strong> Down from 18 hours for email inquiries</li>
+                        <li><strong>CHF 200,000 annual savings:</strong> Reduced need for additional support staff
+                            during peak seasons</li>
+                        <li><strong>24/7 availability:</strong> Customers get help anytime, including holidays</li>
+                        <li><strong>Agent focus:</strong> Human agents now spend 80% of time on complex, high-value
+                            interactions</li>
+                    </ul>
+                </div>
+
+                <div class="case-section">
+                    <h2>Technology Stack</h2>
+                    <p>The solution leverages:</p>
+                    <ul>
+                        <li>Natural Language Understanding with intent classification</li>
+                        <li>Custom-trained conversational AI models</li>
+                        <li>Real-time API integration with ERP and logistics platforms</li>
+                        <li>Sentiment analysis for priority routing</li>
+                        <li>GDPR-compliant cloud deployment with EU data residency</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-cta">
+            <div class="container">
+                <h2>Ready to transform your customer experience?</h2>
+                <p>Let's discuss how AI can scale your customer support.</p>
+                <a href="/contact" class="btn btn-white">Start a Conversation</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="logo-link"><img src="../assets/saits-logo.svg" alt="SAITS" class="logo-img"></a>
+                    <p>Swiss-based AI automation, serving clients globally.</p>
+                </div>
+                <div class="footer-section">
+                    <h5>Company</h5>
+                    <ul class="footer-links">
+                        
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 SAITS. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

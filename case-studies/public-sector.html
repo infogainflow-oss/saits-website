@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study: Public Sector | SAITS</title>
+    <meta name="description"
+        content="How a cantonal government achieved 50% faster citizen service delivery with AI-powered automation.">
+  <link rel="canonical" href="https://saits.ai/case-studies/public-sector">
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Serif+Display&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .case-hero {
+            min-height: 50vh;
+            background: linear-gradient(135deg, #172554 0%, #143CFF 100%);
+            display: flex;
+            align-items: flex-end;
+            padding: 6rem 0 3rem;
+        }
+
+        .case-hero-content {
+            max-width: 800px;
+        }
+
+        .case-hero .industry-tag {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .case-hero h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 400;
+            color: white;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .case-hero p {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.7;
+        }
+
+        .case-metrics {
+            background: #172554;
+            padding: 3rem 0;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .metric-item h3 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 3rem;
+            font-weight: 400;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-item p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.875rem;
+        }
+
+        .case-content {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .case-content .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .case-section {
+            margin-bottom: 3rem;
+        }
+
+        .case-section h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 2rem;
+            color: #172554;
+            margin-bottom: 1.5rem;
+        }
+
+        .case-section p {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: #4b5563;
+            margin-bottom: 1rem;
+        }
+
+        .case-section ul {
+            margin: 1.5rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .case-section li {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: #4b5563;
+            margin-bottom: 0.75rem;
+        }
+
+        .highlight-box {
+            background: #f8f9fa;
+            border-left: 4px solid #143CFF;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .highlight-box p {
+            font-style: italic;
+            margin: 0;
+        }
+
+        .case-cta {
+            background: #172554;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .case-cta h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .case-cta p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .metrics-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+
+  <meta property="og:image" content="https://saits.ai/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://saits.ai/assets/og-image.png">
+
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://saits.ai/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Case Studies",
+      "item": "https://saits.ai/work"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Public Sector",
+      "item": "https://saits.ai/case-studies/public-sector"
+    }
+  ]
+}</script>
+</head>
+
+<body>
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="/" class="logo-link"><img src="../assets/saits-logo.svg" alt="SAITS" class="logo-img"></a>
+                <nav class="nav">
+                    <div class="nav-dropdown">
+                        <a href="/industries" class="nav-link">Industries <svg width="10" height="6"
+                                viewBox="0 0 10 6">
+                                <path d="M1 1l4 4 4-4" stroke="currentColor" fill="none" stroke-width="1.5" />
+                            </svg></a>
+                        <div class="dropdown-menu">
+                            <a href="/industries/real-estate">Real Estate</a>
+                            <a href="/industries/financial-services">Financial Services</a>
+                            <a href="/industries/construction">Construction</a>
+                            <a href="/industries/manufacturing">Manufacturing</a>
+                            <a href="/industries/consumer-retail">Retail</a>
+                            <a href="/industries/public-sector">Public Sector</a>
+                        </div>
+                    </div>
+                    <a href="/services" class="nav-link">Services</a>
+                    
+                    <a href="/about" class="nav-link">About</a>
+                    <a href="/contact" class="nav-link">Contact</a>
+                </nav>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu"><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <nav class="mobile-nav">
+            <a href="/industries" class="mobile-nav-link">Industries</a>
+            <a href="/services" class="mobile-nav-link">Services</a>
+            <a href="/about" class="mobile-nav-link">About</a>
+            <a href="/contact" class="mobile-nav-link">Contact</a>
+        </nav>
+    </div>
+
+    <main>
+        <section class="case-hero">
+            <div class="container">
+                <div class="case-hero-content">
+                    <span class="industry-tag">Public Sector</span>
+                    <h1>Citizen Services Available 24/7</h1>
+                    <p>How a cantonal government implemented AI-powered citizen services, providing round-the-clock
+                        multilingual support while reducing administrative burden.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-metrics">
+            <div class="container">
+                <div class="metrics-grid">
+                    <div class="metric-item">
+                        <h3>50%</h3>
+                        <p>Faster Service Delivery</p>
+                    </div>
+                    <div class="metric-item">
+                        <h3>24/7</h3>
+                        <p>Multilingual Support</p>
+                    </div>
+                    <div class="metric-item">
+                        <h3>40%</h3>
+                        <p>Reduced Processing Time</p>
+                    </div>
+                    <div class="metric-item">
+                        <h3>85%</h3>
+                        <p>Citizen Satisfaction</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-content">
+            <div class="container">
+                <div class="case-section">
+                    <h2>The Challenge</h2>
+                    <p>A cantonal administration serving over 400,000 residents was struggling to meet citizen
+                        expectations for digital services. Counter queues were long, phone lines overwhelmed, and staff
+                        spent excessive time on routine inquiries.</p>
+                    <p>Key challenges included:</p>
+                    <ul>
+                        <li><strong>Limited hours:</strong> Services only available Monday-Friday during business hours
+                        </li>
+                        <li><strong>Language barriers:</strong> Significant population requiring services in 4 languages
+                        </li>
+                        <li><strong>High volume:</strong> 8,000+ citizen inquiries per month</li>
+                        <li><strong>Repetitive questions:</strong> 60% of inquiries were about basic procedures
+                            (permits, registrations, forms)</li>
+                        <li><strong>Staff overload:</strong> Skilled employees spending time on routine tasks</li>
+                    </ul>
+                </div>
+
+                <div class="case-section">
+                    <h2>Our Solution</h2>
+                    <p>We implemented a comprehensive AI-powered citizen services platform that handles common inquiries
+                        while enabling efficient case management for complex requests.</p>
+                    <p><strong>Key components:</strong></p>
+                    <ul>
+                        <li><strong>Multilingual Virtual Assistant:</strong> AI chatbot fluent in German, French,
+                            Italian, and English</li>
+                        <li><strong>Smart Form Filling:</strong> Guided form completion with validation and error
+                            checking</li>
+                        <li><strong>Document Verification:</strong> Automated checking of submitted documents for
+                            completeness</li>
+                        <li><strong>Case Routing:</strong> Intelligent routing of complex requests to appropriate
+                            departments</li>
+                        <li><strong>Status Tracking:</strong> Real-time visibility for citizens on request progress</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box">
+                    <p>"Citizens can now apply for permits at 10pm on a Sunday and get immediate confirmation. Our staff
+                        no longer answer the same questions 100 times a day – they focus on cases that truly need human
+                        judgment."</p>
+                    <p style="margin-top: 1rem; font-style: normal;"><strong>— Director of Digital Services</strong></p>
+                </div>
+
+                <div class="case-section">
+                    <h2>Implementation</h2>
+                    <p>Given the critical nature of government services, implementation followed a careful 20-week plan:
+                    </p>
+                    <ul>
+                        <li><strong>Phase 1 (Weeks 1-4):</strong> Service catalog analysis and knowledge base
+                            development</li>
+                        <li><strong>Phase 2 (Weeks 5-10):</strong> AI training across all four languages with domain
+                            expertise</li>
+                        <li><strong>Phase 3 (Weeks 11-14):</strong> Integration with existing government systems (permit
+                            tracking, registrations)</li>
+                        <li><strong>Phase 4 (Weeks 15-18):</strong> Pilot with 10% of traffic and iterative improvement
+                        </li>
+                        <li><strong>Phase 5 (Weeks 19-20):</strong> Full launch with staff training</li>
+                    </ul>
+                    <p>Special attention was given to accessibility standards and data protection compliance.</p>
+                </div>
+
+                <div class="case-section">
+                    <h2>Results</h2>
+                    <p>After six months of operation:</p>
+                    <ul>
+                        <li><strong>50% faster service delivery:</strong> Average request resolution time cut in half
+                        </li>
+                        <li><strong>24/7 availability:</strong> Citizens can access services anytime, including holidays
+                        </li>
+                        <li><strong>40% reduction in processing time:</strong> Automated validation reduces
+                            back-and-forth</li>
+                        <li><strong>85% citizen satisfaction:</strong> Up from 62% before implementation</li>
+                        <li><strong>60% of inquiries automated:</strong> Routine questions handled without human
+                            intervention</li>
+                        <li><strong>Staff redeployment:</strong> 8 FTE hours daily redirected to complex casework</li>
+                    </ul>
+                </div>
+
+                <div class="case-section">
+                    <h2>Technology Stack</h2>
+                    <ul>
+                        <li>Multilingual NLU models trained on government domain data</li>
+                        <li>Secure integration with cantonal IT infrastructure</li>
+                        <li>WCAG 2.1 AA compliant user interface</li>
+                        <li>On-premise deployment meeting Swiss government data requirements</li>
+                        <li>Comprehensive audit logging for transparency</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-cta">
+            <div class="container">
+                <h2>Ready to modernize public services?</h2>
+                <p>Let's discuss how AI can improve citizen experience.</p>
+                <a href="/contact" class="btn btn-white">Start a Conversation</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="logo-link"><img src="../assets/saits-logo.svg" alt="SAITS" class="logo-img"></a>
+                    <p>Swiss-based AI automation, serving clients globally.</p>
+                </div>
+                <div class="footer-section">
+                    <h5>Company</h5>
+                    <ul class="footer-links">
+                        
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 SAITS. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

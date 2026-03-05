@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 50">
+  <defs>
+    <style>
+      .logo-text { 
+        fill: #FFFFFF; 
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; 
+        font-weight: 700;
+        font-size: 28px;
+        letter-spacing: 0.05em;
+      }
+      .logo-icon {
+        fill: none;
+        stroke: #FFFFFF;
+        stroke-width: 1.5;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .logo-dot {
+        fill: #FFFFFF;
+      }
+      .logo-dot-center {
+        fill: #FFFFFF;
+      }
+    </style>
+  </defs>
+  
+  <!-- AI Neural Network Icon - Refined -->
+  <g transform="translate(8, 7)">
+    <!-- Central node (larger) -->
+    <circle class="logo-dot-center" cx="18" cy="18" r="5"/>
+    
+    <!-- Outer nodes arranged in hexagon pattern -->
+    <circle class="logo-dot" cx="6" cy="10" r="3"/>
+    <circle class="logo-dot" cx="30" cy="10" r="3"/>
+    <circle class="logo-dot" cx="6" cy="26" r="3"/>
+    <circle class="logo-dot" cx="30" cy="26" r="3"/>
+    <circle class="logo-dot" cx="18" cy="3" r="3"/>
+    <circle class="logo-dot" cx="18" cy="33" r="3"/>
+    
+    <!-- Connection lines -->
+    <line class="logo-icon" x1="18" y1="18" x2="6" y2="10"/>
+    <line class="logo-icon" x1="18" y1="18" x2="30" y2="10"/>
+    <line class="logo-icon" x1="18" y1="18" x2="6" y2="26"/>
+    <line class="logo-icon" x1="18" y1="18" x2="30" y2="26"/>
+    <line class="logo-icon" x1="18" y1="18" x2="18" y2="3"/>
+    <line class="logo-icon" x1="18" y1="18" x2="18" y2="33"/>
+  </g>
+  
+  <!-- SAITS. custom typography (Geometric) -->
+  <g transform="translate(55, 34)" fill="#FFFFFF">
+    <!-- S -->
+    <path d="M 18 -18 L 4 -18 L 4 -8 L 16 -8 L 16 0 L 2 0 L 2 -3 L 13 -3 L 13 -11 L 2 -11 L 2 -21 L 18 -21 Z" />
+    
+    <!-- A without middle line -->
+    <path d="M 30 -21 L 19 0 L 23 0 L 30 -14 L 37 0 L 41 0 Z" />
+
+    <!-- I -->
+    <rect x="47" y="-21" width="3" height="21" />
+
+    <!-- T -->
+    <rect x="55" y="-21" width="17" height="3" />
+    <rect x="62" y="-18" width="3" height="18" />
+
+    <!-- S -->
+    <path d="M 91 -18 L 77 -18 L 77 -8 L 89 -8 L 89 0 L 75 0 L 75 -3 L 86 -3 L 86 -11 L 75 -11 L 75 -21 L 91 -21 Z" />
+
+    <!-- Dot -->
+    <rect x="96" y="-3" width="3" height="3" />
+  </g>
+</svg>

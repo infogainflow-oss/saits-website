@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | SAITS – AI Insights & Case Studies</title>
+    <meta name="description"
+        content="Expert insights on AI implementation, automation strategies, and enterprise transformation. Case studies and practical guides from SAITS.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://saits.ai/blogs">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://saits.ai/blogs">
+    <meta property="og:title" content="Blog | SAITS – AI Insights & Case Studies">
+    <meta property="og:description"
+        content="Expert insights on AI implementation, automation strategies, and enterprise transformation. Case studies and practical guides from SAITS.">
+    <meta property="og:site_name" content="SAITS">
+    <meta property="og:image" content="https://saits.ai/assets/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Blog | SAITS">
+    <meta name="twitter:description"
+        content="Expert insights on AI implementation, automation strategies, and enterprise transformation. Case studies and practical guides from SAITS.">
+    <meta name="twitter:image" content="https://saits.ai/assets/og-image.png">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://saits.ai/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://saits.ai/blogs" }
+      ]
+    }
+    </script>
+
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Serif+Display&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/cookie-banner.css">
+    <style>
+        .blog-hero {
+            padding: 8rem 0 4rem;
+            background: linear-gradient(135deg, #172554 0%, #1e3a8a 100%);
+            text-align: center;
+        }
+
+        .blog-hero h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 400;
+            color: white;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .blog-hero p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.125rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .blog-listing {
+            padding: 4rem 0;
+            background: #f9fafb;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        .blog-card-link {
+            text-decoration: none;
+            display: block;
+        }
+
+        .blog-card-content {
+            padding: 2rem;
+        }
+
+        .blog-card-tag {
+            display: inline-block;
+            background: rgba(23, 37, 84, 0.08);
+            color: #172554;
+            padding: 0.35rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .blog-card-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.375rem;
+            color: #172554;
+            line-height: 1.3;
+            margin-bottom: 0.75rem;
+            font-weight: 400;
+        }
+
+        .blog-card-desc {
+            color: #6b7280;
+            font-size: 0.9375rem;
+            line-height: 1.6;
+            margin-bottom: 1.25rem;
+        }
+
+        .blog-card-meta {
+            display: flex;
+            justify-content: space-between;
+            color: #9ca3af;
+            font-size: 0.8125rem;
+            border-top: 1px solid #f3f4f6;
+            padding-top: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .blog-grid {
+                grid-template-columns: 1fr;
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="/" class="logo-link"><img src="../assets/saits-logo.svg" alt="SAITS" class="logo-img"></a>
+                <nav class="nav">
+                    <div class="nav-dropdown">
+                        <a href="/industries" class="nav-link">Industries <svg width="10" height="6" viewBox="0 0 10 6">
+                                <path d="M1 1l4 4 4-4" stroke="currentColor" fill="none" stroke-width="1.5" />
+                            </svg></a>
+                        <div class="dropdown-menu">
+                            <a href="/industries/real-estate">Real Estate</a>
+                            <a href="/industries/financial-services">Financial Services</a>
+                            <a href="/industries/construction">Construction</a>
+                            <a href="/industries/manufacturing">Manufacturing</a>
+                            <a href="/industries/consumer-retail">Retail</a>
+                            <a href="/industries/public-sector">Public Sector</a>
+                        </div>
+                    </div>
+                    <a href="/services" class="nav-link">Services</a>
+                    <a href="/blogs" class="nav-link">Blog</a>
+                    <a href="/about" class="nav-link">About</a>
+                    <a href="/contact" class="nav-link">Contact</a>
+                </nav>
+                <button class="mobile-menu-btn" id="mobileMenuBtn"
+                    aria-label="Toggle menu"><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <nav class="mobile-nav">
+            <a href="/industries" class="mobile-nav-link">Industries</a>
+            <a href="/services" class="mobile-nav-link">Services</a>
+            <a href="/blogs" class="mobile-nav-link">Blog</a>
+            <a href="/about" class="mobile-nav-link">About</a>
+            <a href="/contact" class="mobile-nav-link">Contact</a>
+        </nav>
+    </div>
+
+    <main>
+        <section class="blog-hero">
+            <div class="container">
+                <h1>Blog</h1>
+                <p>Expert insights on AI implementation, automation strategies, and enterprise transformation.</p>
+            </div>
+        </section>
+
+        <section class="blog-listing">
+            <div class="container">
+                <div class="blog-grid">
+                    {{blog-cards}}
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="logo-link"><img src="../assets/saits-logo.svg" alt="SAITS" class="logo-img"></a>
+                    <p>Swiss-based AI automation, serving clients globally.</p>
+                </div>
+                <div class="footer-section">
+                    <h5>Company</h5>
+                    <ul class="footer-links">
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 SAITS. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="../js/main.js"></script>
+
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-banner" class="cookie-banner">
+        <div class="cookie-banner-content">
+            <div class="cookie-banner-text">
+                <p>🍪 We use essential cookies to ensure our website functions properly. We do not use tracking or
+                    advertising
+                    cookies. <a href="/privacy">Learn more</a></p>
+            </div>
+            <div class="cookie-banner-actions">
+                <button id="cookie-accept" class="cookie-btn cookie-btn-accept">Accept</button>
+                <button id="cookie-decline" class="cookie-btn cookie-btn-decline">Decline</button>
+            </div>
+        </div>
+    </div>
+    <script src="../js/cookie-banner.js"></script>
+</body>
+
+</html>
